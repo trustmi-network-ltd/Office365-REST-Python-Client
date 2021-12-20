@@ -210,25 +210,25 @@ class Message(Item):
         """
         self.set_property("subject", value)
 
-    @property
-    def to_recipients(self):
-        """The To: recipients for the message."""
-        return self.properties.get('toRecipients', ClientValueCollection(Recipient))
-
-    @to_recipients.setter
-    def to_recipients(self, value):
-        """
-        The To: recipients for the message.
-
-        :type value: list[str] or list[Recipient]
-        """
-        self.set_property('toRecipients',
-                          ClientValueCollection(Recipient, [Recipient.from_email(email) for email in value]))
+    # @property
+    # def to_recipients(self):
+    #     """The To: recipients for the message."""
+    #     return self.properties.get('toRecipients', ClientValueCollection(Recipient))
+    #
+    # @to_recipients.setter
+    # def to_recipients(self, value):
+    #     """
+    #     The To: recipients for the message.
+    #
+    #     :type value: list[str] or list[Recipient]
+    #     """
+    #     self.set_property('toRecipients',
+    #                       ClientValueCollection(Recipient, [Recipient.from_email(email) for email in value]))
 
     def get_property(self, name, default_value=None):
         if default_value is None:
             property_type_mapping = {
-                "toRecipients": self.to_recipients
+                # "toRecipients": self.to_recipients
             }
             default_value = property_type_mapping.get(name, None)
         return super(Message, self).get_property(name, default_value)
