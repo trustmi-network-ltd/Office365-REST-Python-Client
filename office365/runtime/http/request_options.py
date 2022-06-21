@@ -1,4 +1,8 @@
+from os import getenv
+
 from office365.runtime.http.http_method import HttpMethod
+
+TIMEOUT = int(getenv("TRUSTMI_OFFICE365_TIMEOUT", 60))
 
 
 class RequestOptions(object):
@@ -17,6 +21,7 @@ class RequestOptions(object):
         self.verify = True
         self.stream = False
         self.proxies = None
+        self.timeout = TIMEOUT
 
     @property
     def is_file(self):
