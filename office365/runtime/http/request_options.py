@@ -2,7 +2,9 @@ from os import getenv
 
 from office365.runtime.http.http_method import HttpMethod
 
-TIMEOUT = int(getenv("TRUSTMI_OFFICE365_TIMEOUT", 60))
+TIMEOUT = getenv("TRUSTMI_OFFICE365_TIMEOUT")
+if TIMEOUT:
+    TIMEOUT = int(TIMEOUT)
 
 
 class RequestOptions(object):
