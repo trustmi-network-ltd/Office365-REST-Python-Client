@@ -103,41 +103,47 @@ class ClientRequest(object):
                                          data=request_options.data,
                                          auth=request_options.auth,
                                          verify=request_options.verify,
-                                         proxies=request_options.proxies)
+                                         proxies=request_options.proxies,
+                                         timeout=request_options.timeout)
             else:
                 response = requests.post(url=request_options.url,
                                          headers=request_options.headers,
                                          json=request_options.data,
                                          auth=request_options.auth,
                                          verify=request_options.verify,
-                                         proxies=request_options.proxies)
+                                         proxies=request_options.proxies,
+                                         timeout=request_options.timeout)
         elif request_options.method == HttpMethod.Patch:
             response = requests.patch(url=request_options.url,
                                       headers=request_options.headers,
                                       json=request_options.data,
                                       auth=request_options.auth,
                                       verify=request_options.verify,
-                                      proxies=request_options.proxies)
+                                      proxies=request_options.proxies,
+                                      timeout=request_options.timeout)
         elif request_options.method == HttpMethod.Delete:
             response = requests.delete(url=request_options.url,
                                        headers=request_options.headers,
                                        auth=request_options.auth,
                                        verify=request_options.verify,
-                                       proxies=request_options.proxies)
+                                       proxies=request_options.proxies,
+                                       timeout=request_options.timeout)
         elif request_options.method == HttpMethod.Put:
             response = requests.put(url=request_options.url,
                                     data=request_options.data,
                                     headers=request_options.headers,
                                     auth=request_options.auth,
                                     verify=request_options.verify,
-                                    proxies=request_options.proxies)
+                                    proxies=request_options.proxies,
+                                    timeout=request_options.timeout)
         else:
             response = requests.get(url=request_options.url,
                                     headers=request_options.headers,
                                     auth=request_options.auth,
                                     verify=request_options.verify,
                                     stream=request_options.stream,
-                                    proxies=request_options.proxies)
+                                    proxies=request_options.proxies,
+                                    timeout=request_options.timeout)
         return response
 
     def next_query(self):
